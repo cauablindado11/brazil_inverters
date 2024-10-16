@@ -2,6 +2,11 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@500&display=swap');
 
 
+
+
+
+
+
 /* Estilo Geral */
 body {
     font-family: 'Arial', sans-serif;
@@ -219,6 +224,22 @@ header .logo h1 {
     height: auto; /* Mantém a proporção das imagens */
 }
 
+/* CSS para centralizar e ajustar as imagens dos cards */
+#games-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center; /* Centraliza os cards horizontalmente */
+    gap: 10px; /* Espaçamento entre os cards */
+}
+
+.game-image {
+    width: 100%;
+    height: auto;
+    object-fit: cover; /* Assegura que a imagem ocupe todo o espaço sem distorção */
+    border-radius: 10px;
+    transition: filter 0.3s ease;
+}
+
 /* Rodapé */
 footer {
     background-color: #1a1a1a;
@@ -411,17 +432,22 @@ footer p {
     border-radius: 5px;
 }
 
-/* Estilização do Carrossel */
+    /* Estilização do Carrossel */
 .carousel {
     position: relative;
     overflow: hidden;
-    max-height: 660px; /* Aumentar a altura do carrossel */
+    max-height: 414px; /* Reduz a altura do carrossel */
     top: 5%;
+   
+    border-radius: 15px; /* Bordas arredondadas */
+ 
 }
 
 .carousel-inner img {
-    border-radius: 20px; /* Bordas mais arredondadas */
-    filter: brightness(0.9); /* Levemente escurecido para destaque */
+    border-radius: 20px;
+    filter: brightness(0.9);
+    height: 414px; /* Mesma altura que as imagens do carrossel */
+    object-fit: cover;
 }
 
 /* Estilização da legenda do carrossel */
@@ -464,7 +490,7 @@ footer p {
 
 .carousel-item img {
     width: 100%; /* Garante que a imagem ocupe toda a largura do carrossel */
-    height: 414px; /* Altura fixa, ajuste conforme necessário */
+    height: 500px; /* Altura fixa, ajuste conforme necessário */
     object-fit: cover; /* Mantém a proporção da imagem */
 }
 
@@ -481,9 +507,17 @@ footer p {
 }
 
 /* Estilização das abas dos jogos */
-#games-list {
-    margin-top: 20px;
+
+
+
+/* Layout ajustado para duas linhas de jogos com 3 colunas */
+@media (min-width: 768px) {
+    .col-4 {
+        max-width: 32%;
+    }
 }
+
+
 
 .list-group-item {
     background-color: transparent; /* Fundo transparente */
@@ -592,11 +626,31 @@ h2 {
 
 
 /* PRETO E BRANCO CAROUSEL */
+/* CSS para centralizar e ajustar as imagens dos cards */
+#games-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center; /* Centraliza os cards horizontalmente */
+    gap: 10px; /* Espaçamento entre os cards */
+}
+
 .game-image {
-    filter: grayscale(100%);
+    width: 100%;
+    height: auto;
+    object-fit: cover; /* Assegura que a imagem ocupe todo o espaço sem distorção */
+    border-radius: 10px; /* Deixa as bordas das imagens levemente arredondadas */
+    filter: grayscale(0%); /* Por padrão, as imagens ficam coloridas */
     transition: filter 0.3s ease;
 }
 
+.card-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden; /* Garante que a imagem não saia dos limites do card */
+    height: 150px; /* Altura fixa para os cards */
+}
+
 .active-game {
-    filter: grayscale(0%);
+    filter: grayscale(100%); /* A imagem ativa fica preto e branco */
 }
