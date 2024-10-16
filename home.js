@@ -18,4 +18,32 @@ document.getElementById('search-button').addEventListener('click', function() {
 
 
 
+    document.addEventListener('DOMContentLoaded', function () {
+        var carousel = document.querySelector('#epicGamesCarousel');
+        var carouselItems = document.querySelectorAll('.carousel-item');
+        var gameCards = document.querySelectorAll('.game-image');
+
+        function updateActiveCard() {
+            var activeIndex = Array.from(carouselItems).findIndex(item => item.classList.contains('active'));
+            
+            gameCards.forEach((card, index) => {
+                if (index === activeIndex) {
+                    card.classList.add('active-game');
+                } else {
+                    card.classList.remove('active-game');
+                }
+            });
+        }
+
+        // Atualizar o card ativo ao mudar o slide no carrossel
+        carousel.addEventListener('slid.bs.carousel', updateActiveCard);
+
+        // Atualizar o card ativo ao carregar a página
+        updateActiveCard();
+    });
+
+
+
+
+
 

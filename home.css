@@ -591,3 +591,12 @@ h2 {
 
 
 
+/* PRETO E BRANCO CAROUSEL */
+.game-image {
+    filter: grayscale(100%);
+    transition: filter 0.3s ease;
+}
+
+.active-game {
+    filter: grayscale(0%);
+}
